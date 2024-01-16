@@ -1,0 +1,20 @@
+apiVersion: broker.amq.io/v1beta1
+kind: ActiveMQArtemis
+metadata:
+  name: activemq-artemis-mqtt
+spec:
+  acceptors:
+    - name: mqtt
+      needClientAuth: false
+      port: 1883
+      protocols: MQTT
+      sslEnabled: false
+  deploymentPlan:
+    image: placeholder
+    jolokiaAgentEnabled: false
+    journalType: nio
+    managementRBACEnabled: true
+    messageMigration: false
+    persistenceEnabled: false
+    requireLogin: false
+    size: 2
