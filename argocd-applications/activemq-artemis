@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: activemq-artemis
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/RedHatNordicsSA/amq-broker-mqtt-gitops.git
+    targetRevision: HEAD
+    path: activemq-artemis
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: activemq-artemis
+  syncPolicy:
+    automated:
+      allowEmpty: true
